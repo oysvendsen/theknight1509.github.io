@@ -28,7 +28,15 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script> <!-- Include Jquery -->
   <script>
-    $('.button').on('click', function(){alert('Click')})
+    $('.button').on('click', function(){
+    <!-- alert('Click'); -->
+    $.ajax({
+    type: "POST",
+    url: "~/test_python_script.py",
+    data: {param: "text"},
+    complete: function(python_data) {alert("Executed Python-script")}
+    });
+    })
   </script>
 
 </body>
